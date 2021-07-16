@@ -4,25 +4,16 @@ Source code for the base docker image of https://github.com/oam-dev/docker-terra
 
 # Image build
 
-In directory 
+Run `git lfs track ".terraform.d/**"` to store all large files in Github.
 
-- [optional] Sync .terraform.d 
-
-```shell
-
-ossutil sync oss://docker-terraform . -f
-```
 
 - Add more providers or update a provider
 
-- Package .terraform.d
-
-```
-tar -czvf .terraform.d.tar.gz .terraform.d
-```
+- Push changes to GitHub
 
 - Push the package
 
 ```shell
-
+docker build -t zzxwill/docker-terraform-base:$Tag .
+docker push zzxwill/docker-terraform-base:$Tag
 ```
